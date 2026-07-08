@@ -39,9 +39,9 @@ https://team-directory-92od-bdviyblve-ayeshhh.vercel.app
 
 ## Loom Walkthrough
 
-(https://www.loom.com/share/2cde967d57084025869c09b9c0b9c145)
+[Watch Loom Video](https://www.loom.com/share/2cde967d57084025869c09b9c0b9c145)
 
-
+---
 # Technologies Used
 
 - React
