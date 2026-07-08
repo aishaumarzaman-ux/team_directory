@@ -1,0 +1,78 @@
+.member-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.member-role {
+  margin: 0;
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.admin-badge {
+  background-color: rgba(193, 84, 28, 0.1);
+  color: var(--color-admin);
+  border: 1px solid rgba(193, 84, 28, 0.3);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.member-details {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.1rem 0;
+  font-size: 0.85rem;
+}
+
+.member-details li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.member-details li:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: var(--color-muted);
+}
+
+.detail-value {
+  color: var(--color-ink);
+  font-weight: 500;
+  text-align: right;
+}
+
+.skills-list {
+  margin-bottom: 1.25rem;
+}
+
+.follow-button {
+  width: 100%;
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1rem;
+  border-radius: 7px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.follow-button:hover {
+  background-color: var(--color-accent-dark);
+}

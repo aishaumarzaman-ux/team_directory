@@ -1,0 +1,8 @@
+.skill-badge {
+  background-color: #2ecc71;
+  color: white;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 12px;
+}
