@@ -1,131 +1,197 @@
-# Team Profile Directory — React Class 1 Assignment
+# Team Profile Directory
 
-A React + Vite implementation of the Class 1 Team Profile Directory
-assignment, submitted in two versions as required: one built with AI
-assistance, one built manually. Both cover component composition, props,
-the `children` prop, and prop drilling — **no `useState`**, since state
-management is Class 2 material.
+This repository contains my **React Class 1 Assignment**, completed in two versions as required:
 
-| Folder | Description |
-|---|---|
-| [`AI VERSION/improved`](./AI%20VERSION/improved) | Built with AI assistance |
-| [`manual version/manual`](./manual%20version/manual) | Built manually, without AI assistance |
+- **AI Assisted Version**
+- **Manual Version**
+
+Both versions are built using **React + Vite** and demonstrate the core React concepts taught in Class 1, including component composition, props, the `children` prop, prop drilling, and reusable components.
 
 ---
 
-## Links
+# Project Structure
 
-| | AI Version | Manual Version |
-|---|---|---|
-| **Live Demo (Vercel)** | \<paste-your-vercel-ai-link-here> | \<paste-your-vercel-manual-link-here> |
-| **Loom Walkthrough** | \<paste-your-loom-link-here> | \<paste-your-loom-link-here> |
+```
+team_directory
+│
+├── AI VERSION
+│   └── improved
+│
+├── manual version
+│   └── manual
+│
+└── README.md
+```
 
 ---
 
-## Theory
+# Project Links
 
-### Component Composition
+## Live Demos
+
+### AI Version
+https://team-directory-h0drd40i5-ayeshhh.vercel.app
+
+### Manual Version
+https://team-directory-92od-bdviyblve-ayeshhh.vercel.app
+
+---
+
+## Loom Walkthrough
+
+(https://www.loom.com/share/2cde967d57084025869c09b9c0b9c145)
+
+
+# Technologies Used
+
+- React
+- Vite
+- JavaScript (ES6)
+- JSX
+- CSS
+- npm
+
+---
+
+# React Concepts Demonstrated
+
+## Component Composition
+
+The application is divided into reusable components.
+
 ```
 App
- └── Section (wrapper, uses children)
-      └── Card (wrapper, uses children)
-           └── TeamMember
-                └── SkillBadge
+│
+├── Section
+│
+├── Card
+│
+├── TeamMember
+│
+└── SkillBadge
 ```
-Each component has one job. `Section` and `Card` don't know anything
-about team members — they just render whatever is passed into them via
-`children`. `TeamMember` doesn't know how it's wrapped — it receives
-data through props and renders it. This is what makes `Card` reusable:
-it could wrap anything, not just a `TeamMember`.
 
-### Props — all 6 core JS types demonstrated
-| Type | Example prop | Passed to |
-|---|---|---|
-| `string` | `name`, `role` | `TeamMember` |
-| `number` | `age` | `TeamMember` |
-| `boolean` | `isAdmin` | `TeamMember` |
-| `array` | `skills` | `TeamMember` → mapped into `SkillBadge` |
-| `object` | `address` | `TeamMember` |
-| `function` | `onFollow` | `TeamMember` (called on button click) |
-
-### The `children` Prop
-`Card` and `Section` never declare what they wrap — they accept
-`children` and render `{children}` wherever it belongs. That's what
-makes `<Card><TeamMember /></Card>` work: whatever is nested between a
-component's opening and closing tags becomes its `children`.
-
-### Prop Drilling
-`onFollow` is defined once in `App.jsx`, then passed down through
-intermediate components to `TeamMember`, which calls it when Follow is
-clicked — data/behavior defined at the top of the tree, threaded down to
-where it's actually used.
-
-> **Note:** in the AI version, `onFollow` is passed App → `Card` →
-> `TeamMember`, with `Card` forwarding it along. Double-check the manual
-> version follows the same two-layer path rather than passing `onFollow`
-> straight from `App` to `TeamMember`, since that's what this section of
-> the rubric is specifically checking for.
-
-### JSX Rules Followed
-- `className` instead of `class` (avoids clashing with the JS reserved word)
-- Self-closing tags (`<img />`, `<input />`) — JSX requires every element to be explicitly closed
-- One root element per component (or a Fragment `<>...</>`)
-- `key` prop on every list item rendered via `.map()`, so React can track additions/removals efficiently
+Each component has a single responsibility, making the project easier to organize, maintain, and reuse.
 
 ---
 
-## Running either version
+## Props
 
-Both folders are independent Vite projects.
+Props are used to pass data from parent components to child components.
 
-### AI-assisted version
+Examples include:
+
+- Name
+- Role
+- Age
+- Skills
+- Address
+- Follow Button Function
+
+This allows the same component to display different team members without rewriting code.
+
+---
+
+## Children Prop
+
+The `Section` and `Card` components use the `children` prop.
+
+Instead of knowing what content they contain, they simply render whatever is placed between their opening and closing tags.
+
+Example:
+
+```jsx
+<Card>
+  <TeamMember />
+</Card>
+```
+
+Using `children` makes these wrapper components reusable for different content.
+
+---
+
+## Prop Drilling
+
+The **Follow** button function is created in the `App` component.
+
+It is passed through intermediate components until it reaches the `TeamMember` component, where it is executed when the button is clicked.
+
+This demonstrates prop drilling without using React Context or state management.
+
+---
+
+## JSX Rules Followed
+
+- Used `className` instead of `class`
+- Used self-closing tags where required
+- Returned a single root element from each component
+- Used the `key` prop while rendering lists with `.map()`
+
+---
+
+# Running the Project
+
+## AI Version
+
 ```bash
 cd "AI VERSION/improved"
 npm install
 npm run dev
 ```
-Opens at `http://localhost:5173`
 
-### Manual version
+Runs on:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Manual Version
+
 ```bash
 cd "manual version/manual"
 npm install
 npm run dev
 ```
-Opens at `http://localhost:5174` (Vite auto-bumps the port if 5173 is
-already taken by the AI version)
 
-Do **not** open `index.html` directly from the file system — both
-projects rely on Vite's dev server to compile JSX.
+Runs on:
 
-## Building for production
+```
+http://localhost:5174
+```
 
-From inside either project folder:
+(Vite automatically uses another port if 5173 is already in use.)
+
+---
+
+# Production Build
+
 ```bash
 npm run build
 npm run preview
 ```
 
-## Folder structure (same shape in both versions)
+---
+
+# Folder Structure
+
 ```
-src/
-├── components/
-│   ├── Card/
-│   │   ├── Card.jsx
-│   │   └── Card.css
-│   ├── Section/
-│   │   ├── Section.jsx
-│   │   └── Section.css
-│   ├── TeamMember/
-│   │   ├── TeamMember.jsx
-│   │   └── TeamMember.css
-│   └── SkillBadge/
-│       ├── SkillBadge.jsx
-│       └── SkillBadge.css
-├── data/
-│   └── team.js
+src
+│
+├── components
+│   ├── Card
+│   ├── Section
+│   ├── SkillBadge
+│   └── TeamMember
+│
+├── data
+│
 ├── App.jsx
 ├── App.css
 ├── main.jsx
 └── index.css
 ```
+
+---
+
